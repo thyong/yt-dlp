@@ -1094,6 +1094,7 @@ class TikTokUserIE(TikTokBaseIE):
                 'user_signature': traverse_obj(user_info, ('signature', {str})),
                 'user_avatar': traverse_obj(user_info, ('avatarLarger', {url_or_none})),
                 'user_verified': traverse_obj(user_info, ('verified', {bool})),
+                'user_embed_banned': traverse_obj(user_info, ('isEmbedBanned', {bool})),
                 'user_private_account': traverse_obj(user_info, ('privateAccount', {bool})),
                 'user_create_time': traverse_obj(user_info, ('createTime', {int_or_none})),
                 'user_language': traverse_obj(user_info, ('language', {str})),

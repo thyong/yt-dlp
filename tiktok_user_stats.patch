@@ -2,7 +2,7 @@ diff --git a/yt_dlp/extractor/tiktok.py b/yt_dlp/extractor/tiktok.py
 index b7e058ebe..4a01e60fa 100644
 --- a/yt_dlp/extractor/tiktok.py
 +++ b/yt_dlp/extractor/tiktok.py
-@@ -1081,6 +1081,39 @@ def _real_extract(self, url):
+@@ -1081,6 +1081,40 @@ def _real_extract(self, url):
              elif video_count == 0:
                  raise ExtractorError('This account does not have any videos posted', expected=True)
              sec_uid = traverse_obj(detail, ('userInfo', 'user', 'secUid', {str}))
@@ -19,6 +19,7 @@ index b7e058ebe..4a01e60fa 100644
 +                'user_signature': traverse_obj(user_info, ('signature', {str})),
 +                'user_avatar': traverse_obj(user_info, ('avatarLarger', {url_or_none})),
 +                'user_verified': traverse_obj(user_info, ('verified', {bool})),
++                'user_embed_banned': traverse_obj(user_info, ('isEmbedBanned', {bool})),
 +                'user_private_account': traverse_obj(user_info, ('privateAccount', {bool})),
 +                'user_create_time': traverse_obj(user_info, ('createTime', {int_or_none})),
 +                'user_language': traverse_obj(user_info, ('language', {str})),
